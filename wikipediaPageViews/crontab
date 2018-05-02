@@ -1,0 +1,2 @@
+* * * * * cd /script && sh sparkjob.sh >> /var/log/spark.log 2>&1
+

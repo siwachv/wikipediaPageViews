@@ -1,0 +1,10 @@
+For your solution, explain:
+
+What additional things would you want to operate this application in a production setting?
+- This Application is a sample. its needs to be deployed in spark cluster which can be scaled using a container orchestrator like kubernetes or mesos ... The application is designed to be paralleilzed but I havent put much thought on scaling this. you can connect as many workers to distribute the load for producntion 
+What might change about your solution if this application needed to run automatically for each hour of the day?
+- I have configured a crontab which if you uncomment in docker file shall fire hourly. sometimes you might have to start the cron service within container using "service cron start". For a real|production I would depend on DAG scheduler like airflow
+How would you test this application?
+- You can extend the class to run some unit test. With gradle environment you can also build and run as its packaged. I havent done extensive testing but sparkUI and other can guide you to optimize this app further.... 
+How you’d improve on this application design?
+- I think theres lot of work around type checking, ensuring integrity of arguments, making sure diskspace isnt overwhelmed. Further parallelizing tasks. I would also split the code into more modules espcially I am not happy with how URL is being downloaded so would make connection handler which can handle timeout and retries in case pageview website is out of service or hasnt posted on time... I think Architecturally this mechanics of deployment and techologies utilized are sound.
